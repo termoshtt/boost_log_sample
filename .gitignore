@@ -26,3 +26,21 @@
 *.exe
 *.out
 *.app
+
+# for cmake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+install_manifest.txt
+CTestTestfile.cmake
+Testing
+
+*.log
+
+channel
+client
+logger
+set_filter
+trivial
+
