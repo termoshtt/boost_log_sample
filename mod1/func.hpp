@@ -10,13 +10,7 @@
 
 namespace mod1 {
 
-enum severity_level {
-  debug,
-  info,
-  warning,
-  error,
-  critical
-};
+enum severity_level { debug, info, warning, error, critical };
 std::ostream &operator<<(std::ostream &ost, severity_level l);
 BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT(
     logger,                                                 // loggerの名称
@@ -30,7 +24,7 @@ BOOST_LOG_ATTRIBUTE_KEYWORD(scope, "Scope",
                             boost::log::attributes::named_scope::value_type)
 
 void init();
-void func1();
+void func1(bool);
 void func2();
 
 } // namespace mod1

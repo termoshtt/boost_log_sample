@@ -6,17 +6,27 @@ namespace logging = boost::log;
 namespace keywords = logging::keywords;
 namespace expr = boost::log::expressions;
 
-int main(int argc, char const *argv[]) {
+void init() {
   mod1::init();
 
-  logging::add_file_log(keywords::file_name = "client.log",
+  logging::add_common_attributes();
+  logging::add_file_log(
+      keywords::file_name = "client.log", // logを出力するファイル名
+      keywords::format =
+          "%Tag%: [%TimeStamp%] [%Scope%] %Message%" // logのフォーマット
+      );
+  logging::add_file_log(keywords::file_name = "stream_format.log",
                         keywords::format =
                             (expr::stream << mod1::tag_attr << mod1::line_id
                                           << ": <" << mod1::severity << "> ["
                                           << mod1::scope << "] "
                                           << expr::smessage));
+}
 
-  mod1::func1();
-  mod1::func2();
+int main(int argc, char const *argv[]) {
+  init();
+  mod1::func1(true);
+  mod1::func1(false);
+  // mod1::func2();
   return 0;
 }
