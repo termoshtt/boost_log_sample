@@ -1,6 +1,3 @@
-non-trivialなBoost.Logの使い方(2. cmakeによるコンパイル編)
-=========================================================
-
 compile with cmake
 ------------------
 
@@ -8,9 +5,7 @@ Boost.Logのコンパイルは面倒との意見が散見されます。
 公式はbjamを使用するようにと書いていますが、
 ここではcmakeを使用したコンパイルについて説明します。
 
-私のサンプルコード[termoshtt/boost_log_sample](https://github.com/termoshtt/boost_log_sample)よりCMakeLists.txtを抜粋します：
-
-```cmake:CMakeLists.txt
+```cmake
 cmake_minimum_required(VERSION 2.8)
 find_package(Boost COMPONENTS thread system log log_setup REQUIRED)
 find_package(Threads)
@@ -23,7 +18,7 @@ Boost.Threadをリンクする必要があるので、Threadsも同時にfindし
 
 注意としてはBoost.Logのコンパイル時に動的リンクを行うためのフラグを指定する必要がある点です：
 
-```
+```cmake
 add_definitions("-DBOOST_LOG_DYN_LINK")
 ```
 
