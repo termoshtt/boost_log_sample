@@ -13,12 +13,8 @@ macro(logged_executable name)
   target_link_libraries(${name} ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${ARGN})
 endmacro(logged_executable)
 
-logged_executable(trivial)
-logged_executable(set_filter)
-logged_executable(logger)
-logged_executable(channel)
+add_subdirectory(primary)
 
 add_subdirectory(mod1)
 add_subdirectory(mod2)
-
 logged_executable(client mod1 mod2)
