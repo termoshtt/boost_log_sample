@@ -1,5 +1,6 @@
 
 #include "mod1/func.hpp"
+#include "mod2/mod2.hpp"
 #include <boost/log/utility/setup/file.hpp> // add_file_log
 
 namespace logging = boost::log;
@@ -8,6 +9,7 @@ namespace expr = boost::log::expressions;
 
 void init() {
   mod1::init();
+  mod2::init();
 
   logging::add_common_attributes();
   logging::add_file_log(
@@ -27,6 +29,7 @@ int main(int argc, char const *argv[]) {
   init();
   mod1::func1(true);
   mod1::func1(false);
+  mod2::func();
   // mod1::func2();
   return 0;
 }

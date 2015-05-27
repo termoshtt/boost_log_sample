@@ -19,5 +19,6 @@ logged_executable(logger)
 logged_executable(channel)
 
 add_subdirectory(mod1)
+add_subdirectory(mod2)
 
-logged_executable(client mod1)
+logged_executable(client mod1 mod2)
